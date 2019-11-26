@@ -16,14 +16,11 @@
       <input placeholder="Ingresar numero" type="textfield" name="ans" value="" id="lcd">
       ype="button" class="arit" value="+" onClick="obtenerOperador('suma')">
       <br>
-<<<<<<< HEAD
-=======
       <input type="button" value="1" onClick="mostrar(1)">
       <input type="button" value="2" onClick="mostrar(2)">
       <input type="button" value="3" onClick="mostrar(3)">
       <input type="button" class="arit" value="+" onClick="obtenerOperador('suma')">
       <br>
->>>>>>> e08b72aaaaffe764b95f9c19140ca6fa0efbfe6d
       <input type="button" value="4" onClick="mostrar(4)">
       <input type="button" value="5" onClick="mostrar(5)">
       <input type="button" value="6" onClick="mostrar(6)">
@@ -33,18 +30,66 @@
       <input type="button" value="8" onClick="mostrar(8)">
       <input type="button" value="9" onClick="mostrar(9)">
       <input type="button" class="arit" value="*" onClick="obtenerOperador('multiplicacion')">
-<<<<<<< HEAD
       <br>
       <input type="button" value="0" onClick="mostrar(0)">
       <input type="reset" class="clear" onClick="borrarPantalla" value="CE">
       <input type="button" class="arit" value="/" onClick="obtenerOperador('division')">
       <input type="button" class="arit" value="=" onClick="calcular()">
       <br>
-=======
->>>>>>> e08b72aaaaffe764b95f9c19140ca6fa0efbfe6d
 
     </form>
   </div>
+  <script >
+		var pantalla ='';
+		var resultado ='0';
+		var operador = '';
+		var numero1 = 0;
+		var numero2 = 0;
+		function mostrar(valor){
+			pantalla = pantalla + valor;
+			document.getElementById('lcd').value = pantalla;
+		}
+		function obtenerOperador(operacion){
+			numero1=document.getElementById('lcd').value; 
+			operador = operacion;
+			//borrarPantalla();
+			document.getElementById('lcd').value = '';
+			pantalla ='';
+		}
+		function calcular(){
+			//numero1 = document.getElementById('lcd').value;
+			numero2 = document.getElementById('lcd').value;
+		
+			switch(operador){
+				case 'suma':
+					resultado=parseInt(numero1) + parseInt(numero2);
+					document.getElementById('lcd').value = resultado;
+					break;
+				case 'resta':
+					resultado=parseInt(numero1) - parseInt(numero2);
+					document.getElementById('lcd').value = resultado;
+					break;
+				case 'multiplicacion':
+					resultado=parseInt(numero1) * parseInt(numero2);
+					document.getElementById('lcd').value = resultado;
+					break;
+				case 'division':
+					resultado=parseInt(numero1) / parseInt(numero2);
+					document.getElementById('lcd').value = resultado;
+					break;
+			}
+		}
+		function borrarPantalla(){
+			document.getElementById('lcd').value = '';
+			numero2=0;
+			numero1=0;
+			resultado=0;
+			operador='';
+			pantalla='';
+		}
+		// function sumar(){
+		// }
+	</script>
 
 </body>
 
